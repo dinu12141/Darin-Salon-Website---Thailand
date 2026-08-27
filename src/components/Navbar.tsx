@@ -59,33 +59,33 @@ export const Navbar: React.FC<NavbarProps> = ({
             : 'bg-[#FAF8F5]/80 backdrop-blur-sm border-b border-[#F0E8DF] py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex flex-col items-start text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] rounded"
+            className="flex flex-col items-start text-left shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] rounded"
             aria-label="Darin Beauty and Spa Home"
           >
             <div className="flex items-center space-x-1.5">
-              <span className="font-serif text-2xl sm:text-2xl font-bold tracking-[0.18em] text-[#202025] group-hover:text-[#9E7D39] transition-colors">
+              <span className="font-serif text-xl sm:text-2xl font-bold tracking-[0.16em] sm:tracking-[0.18em] text-[#202025] group-hover:text-[#9E7D39] transition-colors whitespace-nowrap">
                 DARIN
               </span>
-              <Sparkles className="w-3.5 h-3.5 text-[#C5A059] transition-transform group-hover:scale-110" />
+              <Sparkles className="w-3.5 h-3.5 text-[#C5A059] transition-transform group-hover:scale-110 shrink-0" />
             </div>
-            <span className="text-[9px] sm:text-[10px] tracking-[0.28em] font-medium text-[#7C7782] uppercase">
+            <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] sm:tracking-[0.28em] font-medium text-[#7C7782] uppercase whitespace-nowrap">
               BEAUTY & SPA • BANGKOK
             </span>
           </button>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7" aria-label="Main Navigation">
+          {/* Desktop Navigation Links (Clean Single-Line Alignment) */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-7 shrink-0" aria-label="Main Navigation">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`text-sm font-medium tracking-wider uppercase transition-colors relative py-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C5A059] ${
+                  className={`text-xs xl:text-[13px] font-medium tracking-wider uppercase transition-colors relative py-1 whitespace-nowrap focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C5A059] ${
                     isActive
                       ? 'text-[#9E7D39] font-semibold'
                       : 'text-[#3D3B42] hover:text-[#C5A059]'
@@ -100,14 +100,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Actions: Language Selector + Book Appointment CTA */}
-          <div className="hidden sm:flex items-center space-x-4">
+          {/* Desktop Actions: Language Selector + Compact Luxury Book CTA */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             {/* Language Switcher */}
-            <div className="flex items-center bg-[#EFE9DF] rounded-full p-0.5 text-xs font-semibold tracking-wider">
+            <div className="flex items-center bg-[#EFE9DF] rounded-full p-0.5 text-xs font-semibold tracking-wider shrink-0">
               <button
                 type="button"
                 onClick={() => onLanguageChange('en')}
-                className={`px-2.5 py-1 rounded-full transition-all ${
+                className={`px-2.5 py-1 rounded-full transition-all text-xs ${
                   language === 'en'
                     ? 'bg-white text-[#202025] shadow-xs'
                     : 'text-[#6C6872] hover:text-[#202025]'
@@ -119,7 +119,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => onLanguageChange('th')}
-                className={`px-2.5 py-1 rounded-full transition-all ${
+                className={`px-2.5 py-1 rounded-full transition-all text-xs ${
                   language === 'th'
                     ? 'bg-white text-[#202025] shadow-xs'
                     : 'text-[#6C6872] hover:text-[#202025]'
@@ -130,40 +130,32 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* Quick Call icon button */}
-            <a
-              href={`tel:${BUSINESS_INFO.phoneClean}`}
-              className="p-2 text-[#4A4750] hover:text-[#C5A059] hover:bg-[#F2ECE4] rounded-full transition-colors"
-              title={`Call ${BUSINESS_INFO.phone}`}
-              aria-label="Call salon"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-
-            {/* Book Appointment CTA Button */}
+            {/* Compact Professional Book Appointment CTA Button */}
             <button
               onClick={() => handleNavClick('booking')}
-              className="relative inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold tracking-[0.14em] uppercase text-white bg-gradient-to-r from-[#C5A059] via-[#CCA760] to-[#B89249] hover:from-[#B89047] hover:to-[#A47D34] rounded-full shadow-sm hover:shadow-md transition-all active:scale-[0.98] group"
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 xl:px-4 py-2 text-xs font-semibold tracking-wider uppercase text-white bg-gradient-to-r from-[#C5A059] via-[#CCA760] to-[#B89249] hover:from-[#B89047] hover:to-[#A47D34] rounded-full shadow-xs hover:shadow-md transition-all whitespace-nowrap shrink-0 active:scale-[0.98]"
             >
-              <Calendar className="w-3.5 h-3.5 mr-2 text-white/90" />
+              <Calendar className="w-3.5 h-3.5 shrink-0 text-white/95" />
               <span>{t.bookAppointment}</span>
             </button>
           </div>
 
-          {/* Mobile Right Controls: Language + Hamburger */}
-          <div className="flex items-center space-x-2 sm:hidden">
-            <div className="flex items-center bg-[#EFE9DF] rounded-full p-0.5 text-[11px] font-semibold">
+          {/* Mobile & Tablet Right Controls (< lg): Language + Hamburger Toggle */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center bg-[#EFE9DF] rounded-full p-0.5 text-[11px] font-semibold shrink-0">
               <button
+                type="button"
                 onClick={() => onLanguageChange('en')}
-                className={`px-2 py-0.5 rounded-full ${
+                className={`px-2 py-0.5 rounded-full transition-all ${
                   language === 'en' ? 'bg-white text-[#202025] shadow-xs' : 'text-[#6C6872]'
                 }`}
               >
                 EN
               </button>
               <button
+                type="button"
                 onClick={() => onLanguageChange('th')}
-                className={`px-2 py-0.5 rounded-full ${
+                className={`px-2 py-0.5 rounded-full transition-all ${
                   language === 'th' ? 'bg-white text-[#202025] shadow-xs' : 'text-[#6C6872]'
                 }`}
               >
@@ -173,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#202025] hover:bg-[#EAE1D6] focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
+              className="p-1.5 sm:p-2 rounded-lg text-[#202025] hover:bg-[#EAE1D6] focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
             >
