@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Thai", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  
+  --color-ivory: #FAF8F5;
+  --color-ivory-light: #FDFAF7;
+  --color-cream: #F4ECE4;
+  --color-sand: #EAE1D6;
+  --color-champagne: #F5ECD9;
+  --color-nude: #E6D2C4;
+  --color-muted-rose: #CFA499;
+  --color-rose-soft: #F0E3DF;
+  --color-gold-primary: #C5A059;
+  --color-gold-light: #E5D3A6;
+  --color-gold-dark: #9E7D39;
+  --color-charcoal: #202025;
+  --color-charcoal-light: #3D3B42;
+  --color-charcoal-muted: #6C6872;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: var(--color-ivory);
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Luxury custom utility classes */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A47D34 0%, #C5A059 50%, #DFCA9B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #C5A059 0%, #D8BE7A 50%, #B89047 100%);
+}
+
+.gold-border {
+  border-color: rgba(197, 160, 89, 0.35);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(197, 160, 89, 0.7);
+  box-shadow: 0 8px 30px rgba(197, 160, 89, 0.15);
+}
+
+.glass-luxury {
+  background: rgba(253, 250, 247, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(32, 32, 37, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle animation keyframes */
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-soft {
+  animation: fadeInSoft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F4ECE4;
+}
+::-webkit-scrollbar-thumb {
+  background: #CFA499;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
